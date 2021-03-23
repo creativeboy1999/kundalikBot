@@ -1,0 +1,25 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "birinchi demo botim",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "birinchi",
+    "demo",
+    "botim"
+  ],
+  "author": "Umar",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "telegraf": "^4.3.0"
+  },
+  "engines": {
+    "node": "14.*"
+  },
+  "devDependencies": {}
+}
