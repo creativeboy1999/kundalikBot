@@ -1,6 +1,5 @@
 const { Telegraf, Markup, Telegram } = require('telegraf')
 const express = require('express')
-const app = express()
 const nervous = require('./nervous')
 require('dotenv').config()
 const isAdmin = require('./isAdmin')
@@ -11,7 +10,7 @@ var date = new Date()
 date.getMinutes()
 // bot.use(Telegraf.log())
 
-app.use(bot.webhookCallback('/MTIzNDU2Nzg5MA==' + BO))
+express.use(bot.webhookCallback('/MTIzNDU2Nzg5MA==' + BOT_TOKEN))
 bot.telegram.setWebhook('http://kundalikbot.herokuapp.com:5000/MTIzNDU2Nzg5MA==' + BOT_TOKEN)
 
 bot.command(['go', 'start'],  (ctx) => {
