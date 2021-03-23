@@ -11,8 +11,8 @@ var date = new Date()
 date.getMinutes()
 // bot.use(Telegraf.log())
 
-app.use(bot.webhookCallback('/MTIzNDU2Nzg5MA==' + BOT_TOKEN))
-bot.telegram.setWebhook('http://kundalikbot.herokuapp.com' + BOT_TOKEN)
+app.use(bot.webhookCallback('/MTIzNDU2Nzg5MA==' + process.env.BOT_TOKEN))
+bot.telegram.setWebhook('http://kundalikbot.herokuapp.com' + process.env.BOT_TOKEN)
 
 bot.command(['go', 'start'],  (ctx) => {
   console.log(ctx.from) 
