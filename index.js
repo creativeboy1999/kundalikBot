@@ -85,11 +85,11 @@ bot.command('uxla', ctx => {
 })
 bot.telegram.setWebhook('http://kundalikbot.herokuapp.com/MTIzNDU2Nzg5MA==')
 
-bot.startWebHook('/MTIzNDU2Nzg5MA==', null, process.env.PORT || 5000)
+bot.startWebhook('/MTIzNDU2Nzg5MA==', null, process.env.PORT || 9999)
 
 require('http')
   .createServer(bot.webhookCallback('/MTIzNDU2Nzg5MA=='))
-  .listen(process.env.PORT || 5000)
+  .listen(process.env.PORT || 9999)
 
 process.once('SIGINT', () => bot.stop('SIGINT'))
 process.once('SIGTERM', () => bot.stop('SIGTERM'))
