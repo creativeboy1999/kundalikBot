@@ -83,6 +83,13 @@ bot.command('uxla', ctx => {
   else
     ctx.reply('Meni faqat Umar aka uxlata oladi😎!', {reply_to_message_id: ctx.message.message_id})
 })
-bot.launch()
+bot.telegram.setWebhook('http://kundalikbot.herokuapp.com/MTIzNDU2Nzg5MA==')
+
+bot.startWebHook('/MTIzNDU2Nzg5MA==', null, process.env.PORT || 5000)
+
+require('http')
+  .createServer(bot.webhookCallback('/MTIzNDU2Nzg5MA=='))
+  .listen(process.env.PORT || 5000)
+
 process.once('SIGINT', () => bot.stop('SIGINT'))
 process.once('SIGTERM', () => bot.stop('SIGTERM'))
