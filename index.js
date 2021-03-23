@@ -1,4 +1,6 @@
 const { Telegraf, Markup, Telegram } = require('telegraf')
+const express = require('express')
+const app = express()
 const nervous = require('./nervous')
 require('dotenv').config()
 const isAdmin = require('./isAdmin')
@@ -8,6 +10,9 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 var date = new Date()
 date.getMinutes()
 // bot.use(Telegraf.log())
+
+app.use(bot.webhookCallback('/MTIzNDU2Nzg5MA=='))
+bot.telegram.setWebhook('http://kundalikbot.herokuapp.com:5000/MTIzNDU2Nzg5MA==')
 
 bot.command(['go', 'start'],  (ctx) => {
   console.log(ctx.from) 
@@ -83,13 +88,15 @@ bot.command('uxla', ctx => {
   else
     ctx.reply('Meni faqat Umar aka uxlata oladi😎!', {reply_to_message_id: ctx.message.message_id})
 })
-bot.telegram.setWebhook('http://kundalikbot.herokuapp.com:5000/MTIzNDU2Nzg5MA==')
 
-bot.startWebhook('/MTIzNDU2Nzg5MA==', null, process.env.PORT || 5000)
 
-require('http')
-  .createServer(bot.webhookCallback('/MTIzNDU2Nzg5MA=='))
-  .listen(process.env.PORT || 5000)
+app.get('/', (req, res) => {
+  res.send('Hello')
+})
+
+app.listen(process.env.PORT || 5000, () => {
+  console.log('listening')
+})
 
 process.once('SIGINT', () => bot.stop('SIGINT'))
 process.once('SIGTERM', () => bot.stop('SIGTERM'))
