@@ -1,12 +1,12 @@
 const { Telegraf, Markup, Telegram } = require('telegraf')
 const express = require('express')
 const app = express()
-const nervous = require('./nervous')
+const nervous = require('./replies')
 require('dotenv').config()
 const isAdmin = require('./isAdmin')
 const isSuperAdmin = require('./isAdmin')
 const jadval = require('./jadval')
-const bot = new Telegraf(process.env.BOT_TOKEN)
+const bot = new Telegraf(process.env.BOT_TOKEN2)
 var date = new Date()
 date.getMinutes()
 // bot.use(Telegraf.log())
@@ -28,10 +28,11 @@ bot.hears(['dushanba', 'seshanba', 'chorshanba', 'payshanba', 'juma', 'shanba', 
         ctx.replyWithHTML(jadval('group ' , ctx.message.text), {reply_to_message_id: ctx.message.message_id})
     }
 )
-bot.command('del', ctx => ctx.reply('del'))
-bot.hears('!flood', ctx =>{
-  ctx.reply(
-    nervous(ctx.message.text, ctx.message.reply_to_message), {reply_to_message_id: ctx.message.reply_to_message.message_id}
+bot.hears(['!flood', '!Flood', '!FLOOD'], ctx =>{
+  if(ctx.message.reply_to_message)
+    ctx.replyWithHTML(
+      nervous(ctx.message.text, ctx.message.reply_to_message), 
+      {reply_to_message_id: ctx.message.reply_to_message.message_id}
     )
   })
 bot.on('sticker', (ctx) => ctx.reply('Sticker yuboraverma hali unaqa aqillimasman!', {reply_to_message_id: ctx.message.message_id}))
@@ -55,14 +56,14 @@ bot.command('uxla', ctx => {
     ctx.reply('Meni faqat Umar aka uxlata oladi😎!', {reply_to_message_id: ctx.message.message_id})
 })
 
+// bot.launch()
+// app.get('/', (req, res) => {
+//   res.send('Hello')
+// })
 
-app.get('/', (req, res) => {
-  res.send('Hello')
-})
-
-app.listen(process.env.PORT || 5000, () => {
-  console.log('listening')
-})
+// app.listen(process.env.PORT || 5000, () => {
+//   console.log('listening')
+// })
 
 // process.once('SIGINT', () => bot.stop('SIGINT'))
 // process.once('SIGTERM', () => bot.stop('SIGTERM'))

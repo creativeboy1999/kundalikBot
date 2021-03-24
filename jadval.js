@@ -6,7 +6,7 @@ groups = {
         }),
             seshanba: () => ({
                 fanlar: ['Axborot va murabbiylik soati', 'Mobil ilovalarni ishlab chiqish (Mirzayeva N)', 'Mobil ilovalarni ishlab chiqish (ma`ruza Doshanova M)'],
-                xonalar: ['A315', 'D310', 'D301']
+                xonalar: ['A315', 'D309', 'D301']
             }),
             chorshanba: () => ({
                 fanlar: ['Operatsion tizimlar (ma`ruza Shoazizova M)', 'tanlov fan', 'tanlov fan'],
