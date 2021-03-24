@@ -33,7 +33,6 @@ bot.hears('!flood', ctx =>{
   ctx.reply(
     nervous(ctx.message.text, ctx.message.reply_to_message), {reply_to_message_id: ctx.message.reply_to_message.message_id}
     )
-  ctx.telegram.sendMessage(334307783,  `Hello ${ctx.state.role}`)
   })
 bot.on('sticker', (ctx) => ctx.reply('Sticker yuboraverma hali unaqa aqillimasman!', {reply_to_message_id: ctx.message.message_id}))
 bot.help((ctx) => ctx.reply('Hurmatli ' + ctx.from.first_name + ' aka(opa)' + '\nMen hozircha faqat 317-18 guruh talabalariga yordam bera olaman!'))
