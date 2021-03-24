@@ -10,9 +10,8 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 var date = new Date()
 date.getMinutes()
 // bot.use(Telegraf.log())
-// MTIzNDU2Nzg5MA==
-app.use(bot.webhookCallback('/m&wl~' + process.env.BOT_TOKEN))
-bot.telegram.setWebhook('https://kundalik-bot.herokuapp.com/m&wl~' + process.env.BOT_TOKEN)
+app.use(bot.webhookCallback('/m&wl~'))
+bot.telegram.setWebhook('https://kundalik-bot.herokuapp.com/m&wl~')
 
 bot.command(['go', 'start'],  (ctx) => {
   console.log(ctx.from) 
@@ -39,39 +38,6 @@ bot.on('sticker', (ctx) => ctx.reply('Sticker yuboraverma hali unaqa aqillimasma
 bot.help((ctx) => ctx.reply('Hurmatli ' + ctx.from.first_name + ' aka(opa)' + '\nMen hozircha faqat 317-18 guruh talabalariga yordam bera olaman!'))
 bot.hears('hi', async (ctx) => ctx.reply('Hey there'))
 bot.hears('Umar' || 'umar' , ctx => ctx.reply('Umarga yozmoqchi bo`lsangiz @Nano_code ga yozing!', {reply_to_message_id: ctx.message.message_id}))
-
-{
-// bot.command('inline', (ctx) => {
-//   return ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', {
-//     parse_mode: 'HTML',
-//       ...Markup.inlineKeyboard([
-//         Markup.button.callback('Coke', 'Coke'),
-//         Markup.button.callback('Pepsi', 'Pepsi')
-//       ])
-//   })
-// })
-// bot.command('random', (ctx) => {
-//   return ctx.reply(
-//     'random example',
-//       Markup.inlineKeyboard([
-//         Markup.button.callback('Coke', 'Coke'),
-//         Markup.button.callback('Dr Pepper', 'Dr Pepper', Math.random() > 0.5),
-//         Markup.button.callback('Pepsi', 'Pepsi')
-//       ])
-//   )
-// })
-// bot.command('caption', (ctx) => {
-//   return ctx.replyWithPhoto({ url: 'https://picsum.photos/200/300/?random' },
-//   {
-//     caption: 'Caption',
-//     parse_mode: 'Markdown',
-//     ...Markup.inlineKeyboard([
-//       Markup.button.callback('Plain', 'plain'),
-//       Markup.button.callback('Italic', 'italic')
-//     ])
-//   })
-// })
-}
 
 bot.command('uygabor', (ctx) => {
   if(isAdmin(ctx.from.id) == true){
